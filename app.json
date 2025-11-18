@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "TeachingRobot",
+    "name": "Buddy Bot",
     "slug": "TeachingRobot",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
@@ -20,10 +20,16 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.ashu1982.TeachingRobot"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "5b9a36a7-c2a2-47b7-9c38-876c2ad72d89"
+      }
     }
   }
 }

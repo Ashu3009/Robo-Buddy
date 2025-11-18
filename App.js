@@ -339,10 +339,11 @@ Science is everywhere around us!`
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" />
       <LinearGradient
-        colors={['#1e3c72', '#2a5298', '#7e22ce']}
+        colors={['#0a1628', '#1e3a8a', '#2563eb', '#3b82f6']}
         style={styles.gradient}
       >
         <ScrollView
+          horizontal={false}
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.scrollContent}
         >
@@ -350,23 +351,23 @@ Science is everywhere around us!`
           {/* HEADER */}
           <View style={styles.header}>
             <View style={styles.iconContainer}>
-              <Ionicons name="school-outline" size={50} color="white" />
+              <Ionicons name="logo-android" size={50} color="white" />
             </View>
-            <Text style={styles.title}>Teaching Assistant</Text>
-            <Text style={styles.subtitle}>Professional Learning Platform</Text>
+            <Text style={styles.title}>Buddy Bot</Text>
+            <Text style={styles.subtitle}>Your Teaching Assistant</Text>
           </View>
 
           {/* CURRENT STATUS */}
           <View style={styles.statusCard}>
             <View style={styles.statusHeader}>
-              <MaterialIcons name="speaker-notes" size={24} color="#2a5298" />
+              <MaterialIcons name="speaker-notes" size={20} color="#93c5fd" />
               <Text style={styles.statusTitle}>Current Status</Text>
             </View>
 
             <View style={styles.statusBox}>
               <Text style={styles.statusText}>{currentLine}</Text>
               {(isSpeaking || isLoading) && (
-                <ActivityIndicator size="small" color="#2a5298" style={styles.loader} />
+                <ActivityIndicator size="small" color="#93c5fd" style={styles.loader} />
               )}
             </View>
           </View>
@@ -374,7 +375,7 @@ Science is everywhere around us!`
           {/* UPLOAD SECTION */}
           <View style={styles.card}>
             <View style={styles.cardHeader}>
-              <MaterialIcons name="cloud-upload" size={22} color="#2a5298" />
+              <MaterialIcons name="cloud-upload" size={18} color="#93c5fd" />
               <Text style={styles.cardTitle}>Upload Document</Text>
             </View>
 
@@ -412,7 +413,7 @@ Science is everywhere around us!`
           {/* INPUT AREA */}
           <View style={styles.card}>
             <View style={styles.cardHeader}>
-              <MaterialIcons name="edit-note" size={22} color="#2a5298" />
+              <MaterialIcons name="edit-note" size={18} color="#93c5fd" />
               <Text style={styles.cardTitle}>Lesson Content</Text>
               <TouchableOpacity onPress={clearText} style={styles.clearButton}>
                 <Text style={styles.clearBtnText}>Clear</Text>
@@ -434,7 +435,7 @@ Science is everywhere around us!`
           {/* SAMPLE LESSONS */}
           <View style={styles.card}>
             <View style={styles.cardHeader}>
-              <MaterialIcons name="library-books" size={22} color="#2a5298" />
+              <MaterialIcons name="library-books" size={18} color="#93c5fd" />
               <Text style={styles.cardTitle}>Quick Templates</Text>
             </View>
 
@@ -443,7 +444,7 @@ Science is everywhere around us!`
                 style={styles.sampleBtn}
                 onPress={() => loadSample("welcome")}
               >
-                <MaterialIcons name="waving-hand" size={20} color="#2a5298" />
+                <MaterialIcons name="waving-hand" size={18} color="#93c5fd" />
                 <Text style={styles.sampleBtnText}>Welcome</Text>
               </TouchableOpacity>
 
@@ -451,7 +452,7 @@ Science is everywhere around us!`
                 style={styles.sampleBtn}
                 onPress={() => loadSample("math")}
               >
-                <MaterialIcons name="calculate" size={20} color="#2a5298" />
+                <MaterialIcons name="calculate" size={18} color="#93c5fd" />
                 <Text style={styles.sampleBtnText}>Math</Text>
               </TouchableOpacity>
 
@@ -459,7 +460,7 @@ Science is everywhere around us!`
                 style={styles.sampleBtn}
                 onPress={() => loadSample("science")}
               >
-                <MaterialIcons name="science" size={20} color="#2a5298" />
+                <MaterialIcons name="science" size={18} color="#93c5fd" />
                 <Text style={styles.sampleBtnText}>Science</Text>
               </TouchableOpacity>
             </View>
@@ -468,7 +469,7 @@ Science is everywhere around us!`
           {/* SPEED CONTROL */}
           <View style={styles.card}>
             <View style={styles.cardHeader}>
-              <MaterialIcons name="speed" size={22} color="#2a5298" />
+              <MaterialIcons name="speed" size={18} color="#93c5fd" />
               <Text style={styles.cardTitle}>Speech Speed: {speechRate.toFixed(1)}x</Text>
             </View>
 
@@ -477,7 +478,7 @@ Science is everywhere around us!`
                 style={styles.speedBtn}
                 onPress={() => setSpeechRate(Math.max(0.5, speechRate - 0.1))}
               >
-                <MaterialIcons name="remove" size={18} color="white" />
+                <MaterialIcons name="remove" size={16} color="white" />
                 <Text style={styles.speedBtnText}>Slower</Text>
               </TouchableOpacity>
 
@@ -485,7 +486,7 @@ Science is everywhere around us!`
                 style={styles.resetBtn}
                 onPress={() => setSpeechRate(0.9)}
               >
-                <MaterialIcons name="restart-alt" size={18} color="white" />
+                <MaterialIcons name="restart-alt" size={16} color="white" />
                 <Text style={styles.speedBtnText}>Reset</Text>
               </TouchableOpacity>
 
@@ -493,7 +494,7 @@ Science is everywhere around us!`
                 style={styles.speedBtn}
                 onPress={() => setSpeechRate(Math.min(1.5, speechRate + 0.1))}
               >
-                <MaterialIcons name="add" size={18} color="white" />
+                <MaterialIcons name="add" size={16} color="white" />
                 <Text style={styles.speedBtnText}>Faster</Text>
               </TouchableOpacity>
             </View>
@@ -501,7 +502,7 @@ Science is everywhere around us!`
 
           {/* TEST AUDIO */}
           <TouchableOpacity style={styles.testBtn} onPress={testSpeech}>
-            <MaterialIcons name="volume-up" size={20} color="white" />
+            <MaterialIcons name="volume-up" size={18} color="white" />
             <Text style={styles.testBtnText}>Test Audio</Text>
           </TouchableOpacity>
 
@@ -513,12 +514,12 @@ Science is everywhere around us!`
                 onPress={startSpeaking}
                 disabled={isLoading}
               >
-                <Ionicons name="play-circle" size={60} color="white" />
+                <Ionicons name="play-circle" size={50} color="white" />
                 <Text style={styles.mainBtnText}>Start Teaching</Text>
               </TouchableOpacity>
             ) : (
               <TouchableOpacity style={styles.stopButton} onPress={stopSpeaking}>
-                <Ionicons name="stop-circle" size={60} color="white" />
+                <Ionicons name="stop-circle" size={50} color="white" />
                 <Text style={styles.mainBtnText}>Stop Teaching</Text>
               </TouchableOpacity>
             )}
@@ -530,309 +531,318 @@ Science is everywhere around us!`
   );
 }
 
-// STYLES
+// STYLES - UNIFIED TRANSPARENT BLUEISH DESIGN
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1e3c72'
+    backgroundColor: '#0a1628'
   },
   gradient: {
     flex: 1
   },
   scrollContent: {
     padding: 20,
-    paddingTop: 30,
-    paddingBottom: 40
+    paddingHorizontal: 50,
+    paddingTop: 15,
+    paddingBottom: 20
   },
   header: {
     alignItems: "center",
-    marginBottom: 30
+    marginBottom: 18
   },
   iconContainer: {
-    width: 90,
-    height: 90,
-    borderRadius: 45,
+    width: 65,
+    height: 65,
+    borderRadius: 32.5,
     backgroundColor: 'rgba(255,255,255,0.15)',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 15,
-    borderWidth: 3,
-    borderColor: 'rgba(255,255,255,0.3)'
+    marginBottom: 10,
+    borderWidth: 2,
+    borderColor: 'rgba(255,255,255,0.3)',
+    shadowColor: "#60a5fa",
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.5,
+    shadowRadius: 12,
+    elevation: 10
   },
   title: {
-    fontSize: 32,
+    fontSize: 36,
     color: "white",
     fontWeight: "bold",
-    letterSpacing: 0.5
+    letterSpacing: 2,
+    textShadowColor: 'rgba(96, 165, 250, 0.8)',
+    textShadowOffset: { width: 0, height: 3 },
+    textShadowRadius: 8
   },
   subtitle: {
-    color: "#E0E7FF",
-    marginTop: 8,
+    color: "#bfdbfe",
+    marginTop: 5,
     fontSize: 15,
-    fontWeight: '500'
+    fontWeight: '500',
+    letterSpacing: 1
   },
   statusCard: {
-    backgroundColor: "white",
-    padding: 20,
+    backgroundColor: "rgba(255,255,255,0.12)",
+    padding: 16,
     borderRadius: 16,
-    marginBottom: 20,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 5
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.25)'
   },
   statusHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 12
+    marginBottom: 10
   },
   statusTitle: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '700',
-    color: '#1e3c72',
+    color: '#fff',
     marginLeft: 8
   },
   statusBox: {
-    backgroundColor: "#F0F4FF",
-    padding: 18,
+    backgroundColor: "rgba(96, 165, 250, 0.2)",
+    padding: 14,
     borderRadius: 12,
-    borderLeftWidth: 4,
-    borderLeftColor: '#2a5298',
-    minHeight: 70,
+    borderWidth: 1,
+    borderColor: 'rgba(147, 197, 253, 0.3)',
+    minHeight: 60,
     justifyContent: 'center'
   },
   statusText: {
-    fontSize: 16,
-    color: '#1e3c72',
-    fontWeight: '500',
-    lineHeight: 24
+    fontSize: 15,
+    color: '#fff',
+    fontWeight: '600',
+    lineHeight: 22
   },
   loader: {
     marginTop: 8
   },
   card: {
-    backgroundColor: "white",
-    padding: 20,
-    borderRadius: 16,
-    marginBottom: 16,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.08,
-    shadowRadius: 6,
-    elevation: 3
+    backgroundColor: "rgba(255,255,255,0.08)",
+    padding: 16,
+    borderRadius: 14,
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.2)'
   },
   cardHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 14
+    marginBottom: 12
   },
   cardTitle: {
-    fontSize: 17,
+    fontSize: 15,
     fontWeight: "700",
-    color: '#1e3c72',
+    color: '#fff',
     marginLeft: 8,
-    flex: 1
+    flex: 1,
+    letterSpacing: 0.5
   },
   uploadButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#2a5298',
-    padding: 16,
-    borderRadius: 12,
-    gap: 10
+    backgroundColor: '#3b82f6',
+    padding: 12,
+    borderRadius: 10,
+    gap: 8
   },
   uploadRow: {
     flexDirection: 'row',
-    gap: 10,
-    marginBottom: 10
+    gap: 8,
+    marginBottom: 8
   },
   uploadButtonHalf: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#2a5298',
-    padding: 14,
+    backgroundColor: '#3b82f6',
+    padding: 12,
     borderRadius: 12,
-    gap: 6
+    gap: 6,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.3)'
   },
   convertButton: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#dc2626',
-    padding: 14,
+    backgroundColor: '#8b5cf6',
+    padding: 12,
     borderRadius: 12,
-    gap: 6
+    gap: 6,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.3)'
   },
   uploadButtonText: {
     color: 'white',
     fontWeight: '600',
-    fontSize: 15
+    fontSize: 14
   },
   uploadButtonTextSmall: {
     color: 'white',
     fontWeight: '600',
-    fontSize: 13
+    fontSize: 12
   },
   helpText: {
-    fontSize: 12,
-    color: '#6B7280',
+    fontSize: 11,
+    color: '#bfdbfe',
     textAlign: 'center',
-    marginTop: 8,
+    marginTop: 6,
     fontStyle: 'italic'
   },
   helpTextSmall: {
-    fontSize: 11,
-    color: '#10b981',
+    fontSize: 10,
+    color: '#93c5fd',
     textAlign: 'center',
-    marginTop: 4,
+    marginTop: 3,
     fontWeight: '600'
   },
   fileNameText: {
-    marginTop: 10,
-    color: '#2a5298',
-    fontSize: 13,
+    marginTop: 8,
+    color: '#93c5fd',
+    fontSize: 12,
     fontWeight: '500',
     textAlign: 'center'
   },
   clearButton: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    backgroundColor: '#f3f4f6',
-    borderRadius: 8
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    backgroundColor: 'rgba(239, 68, 68, 0.2)',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: 'rgba(239, 68, 68, 0.3)'
   },
   clearBtnText: {
-    color: '#dc2626',
+    color: '#fca5a5',
     fontWeight: '600',
-    fontSize: 14
+    fontSize: 12
   },
   textInput: {
-    borderWidth: 1.5,
-    borderColor: "#E5E7EB",
-    backgroundColor: "#F9FAFB",
+    borderWidth: 1,
+    borderColor: "rgba(147, 197, 253, 0.3)",
+    backgroundColor: "rgba(255,255,255,0.15)",
     borderRadius: 12,
-    padding: 16,
-    minHeight: 160,
+    padding: 14,
+    minHeight: 90,
     textAlignVertical: "top",
-    fontSize: 15,
-    lineHeight: 22,
-    color: '#1e3c72'
+    fontSize: 14,
+    lineHeight: 20,
+    color: '#fff'
   },
   charCount: {
     textAlign: "right",
-    color: "#9CA3AF",
-    marginTop: 8,
-    fontSize: 13,
+    color: "#93c5fd",
+    marginTop: 6,
+    fontSize: 11,
     fontWeight: '500'
   },
   sampleButtons: {
     flexDirection: "row",
     justifyContent: "space-between",
-    gap: 10
+    gap: 8
   },
   sampleBtn: {
-    padding: 14,
-    backgroundColor: "#F0F4FF",
+    padding: 12,
+    backgroundColor: "rgba(59, 130, 246, 0.25)",
     borderRadius: 12,
     flex: 1,
     alignItems: "center",
     gap: 6,
-    borderWidth: 1.5,
-    borderColor: '#E0E7FF'
+    borderWidth: 1,
+    borderColor: 'rgba(147, 197, 253, 0.4)'
   },
   sampleBtnText: {
-    color: "#2a5298",
+    color: "#fff",
     fontWeight: "700",
-    fontSize: 13
+    fontSize: 12
   },
   speedButtons: {
     flexDirection: "row",
     justifyContent: "space-between",
-    gap: 10
+    gap: 8
   },
   speedBtn: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 12,
-    backgroundColor: "#2a5298",
+    padding: 10,
+    backgroundColor: "#3b82f6",
     borderRadius: 10,
-    gap: 6
+    gap: 5,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.3)'
   },
   resetBtn: {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: 12,
-    backgroundColor: "#7e22ce",
+    padding: 10,
+    backgroundColor: "#8b5cf6",
     borderRadius: 10,
-    gap: 6
+    gap: 5,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.3)'
   },
   speedBtnText: {
     color: "white",
     fontWeight: '600',
-    fontSize: 13
+    fontSize: 12
   },
   testBtn: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: "rgba(255,255,255,0.2)",
-    padding: 14,
+    backgroundColor: "rgba(255,255,255,0.12)",
+    padding: 12,
     borderRadius: 12,
-    marginBottom: 20,
+    marginBottom: 12,
     gap: 8,
-    borderWidth: 1.5,
-    borderColor: 'rgba(255,255,255,0.3)'
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.25)'
   },
   testBtnText: {
     color: "white",
-    fontWeight: "700",
-    fontSize: 15
+    fontWeight: "600",
+    fontSize: 13
   },
   mainControls: {
     alignItems: "center",
-    marginTop: 10,
-    marginBottom: 20
+    marginTop: 8,
+    marginBottom: 10
   },
   playButton: {
     alignItems: "center",
-    paddingVertical: 24,
-    paddingHorizontal: 40,
+    paddingVertical: 20,
+    paddingHorizontal: 50,
     backgroundColor: "#10b981",
-    borderRadius: 20,
-    shadowColor: "#10b981",
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.4,
-    shadowRadius: 12,
-    elevation: 8,
-    minWidth: 220
+    borderRadius: 18,
+    minWidth: 280,
+    borderWidth: 2,
+    borderColor: 'rgba(255,255,255,0.3)'
   },
   stopButton: {
     alignItems: "center",
-    paddingVertical: 24,
-    paddingHorizontal: 40,
+    paddingVertical: 20,
+    paddingHorizontal: 50,
     backgroundColor: "#ef4444",
-    borderRadius: 20,
-    shadowColor: "#ef4444",
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.4,
-    shadowRadius: 12,
-    elevation: 8,
-    minWidth: 220
+    borderRadius: 18,
+    minWidth: 280,
+    borderWidth: 2,
+    borderColor: 'rgba(255,255,255,0.3)'
   },
   mainBtnText: {
     color: "white",
-    fontWeight: "bold",
-    marginTop: 12,
+    fontWeight: "800",
+    marginTop: 10,
     fontSize: 18,
-    letterSpacing: 0.5
+    letterSpacing: 1
   },
   disabledBtn: {
     opacity: 0.5
